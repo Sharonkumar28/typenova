@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TypeNova // Advanced Core Hybrid Typing Ecosystem</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="ambient-glow glow-cyan"></div>
+    <div class="ambient-glow glow-magenta"></div>
+    <div class="scanline-layer"></div>
+
+    <div class="app-container">
+        <header class="glass-panel main-header">
+            <div class="logo-group">
+                <div class="logo-box">🪐</div>
+                <div class="logo-text">Type<span class="text-accent">Nova</span></div>
+            </div>
+
+            <nav class="mode-navigation bg-black-30">
+                <button id="nav-classic" class="nav-tab-btn active">📺 Classic Mode</button>
+                <button id="nav-arcade" class="nav-tab-btn">🕹️ Arcade Shooter</button>
+            </nav>
+
+            <div class="action-controls">
+                <div class="stats-pill streak-pill" title="Daily Activity Streak Counter">
+                    <span class="pill-icon">🔥</span>
+                    <span id="streak-counter-display">1</span> Days
+                </div>
+                <button id="audio-toggle-btn" class="utility-icon-btn" aria-label="Toggle Audio Systems">
+                    <svg class="audio-on-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"></path><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>
+                    <svg class="audio-off-icon hidden-asset" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"></path><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+                </button>
+                <button id="theme-toggle-btn" class="utility-icon-btn" aria-label="Toggle Core Interface Palette">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </button>
+            </div>
+        </header>
+
+        <section class="global-stats-row">
+            <div class="glass-panel dynamic-stat-card border-glow-cyan">
+                <div class="stat-meta">
+                    <span class="stat-label">Velocity Gauge</span>
+                    <span id="live-metric-wpm" class="stat-value text-cyan">0 WPM</span>
+                </div>
+                <div class="stat-icon-wrapper text-cyan">⚡</div>
+            </div>
+            <div class="glass-panel dynamic-stat-card border-glow-magenta">
+                <div class="stat-meta">
+                    <span class="stat-label">Accuracy Track</span>
+                    <span id="live-metric-acc" class="stat-value text-magenta">100%</span>
+                </div>
+                <div class="stat-icon-wrapper text-magenta">🎯</div>
+            </div>
+            <div class="glass-panel dynamic-stat-card border-glow-emerald">
+                <div class="stat-meta">
+                    <span class="stat-label">Personal Best</span>
+                    <span id="live-metric-pb" class="stat-value text-emerald">0 WPM</span>
+                </div>
+                <div class="stat-icon-wrapper text-emerald">🏆</div>
+            </div>
+        </section>
+
+        <div class="dashboard-grid-matrix">
+            
+            <main class="primary-workstation-pane">
+                
+                <div id="classic-workspace-module" class="workspace-panel active">
+                    <div class="glass-panel context-config-bar">
+                        <span class="config-heading">Timeline Configurations:</span>
+                        <div class="config-selectors">
+                            <button class="time-select-btn" data-seconds="15">15s</button>
+                            <button class="time-select-btn active" data-seconds="30">30s</button>
+                            <button class="time-select-btn" data-seconds="60">60s</button>
+                        </div>
+                    </div>
+
+                    <div class="glass-panel interactive-typing-surface" id="typing-focus-proxy-zone">
+                        <input type="text" id="hidden-typing-input" autocomplete="off" autocapitalize="off">
+                        <div id="text-display-stream" class="text-display-stream font-mono">
+                            </div>
+                    </div>
+
+                    <div class="action-footer-bar">
+                        <button id="classic-restart-btn" class="glass-btn variant-primary">
+                            <svg class="btn-icon animate-spin-hover" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+                            Re-Initialize Verification Engine (Tab + Enter)
+                        </button>
+                    </div>
+                </div>
+
+                <div id="arcade-workspace-module" class="workspace-panel">
+                    <div class="glass-panel arcade-hud-panel">
+                        <div class="hud-item flex-grow-2">
+                            <span class="hud-label">Matrix Shield Integrity</span>
+                            <div class="health-track-bar">
+                                <div id="arcade-health-fill" class="health-track-fill" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        <div class="hud-item">
+                            <span class="hud-label">Score Ledger</span>
+                            <span id="arcade-hud-score" class="hud-value font-mono text-cyan">00000</span>
+                        </div>
+                        <div class="hud-item">
+                            <span class="hud-label">Combo Tracker</span>
+                            <span id="arcade-hud-combo" class="hud-value font-mono text-magenta">x0</span>
+                        </div>
+                        <div class="hud-item">
+                            <span class="hud-label">Threat Level</span>
+                            <span id="arcade-hud-level" class="hud-value font-mono text-emerald">01</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-panel context-config-bar" style="margin-top: 15px; margin-bottom: -10px; padding: 12px 24px;">
+                        <div class="flex items-center gap-3">
+                            <span class="config-heading" style="margin: 0; color: var(--cyan); font-size: 11px;">
+                                <i class="fas fa-shield-alt"></i> THREAT_LEVEL:
+                            </span>
+                        </div>
+                        <div class="config-selectors">
+                            <button class="arcade-diff-btn active" data-diff="easy">
+                                <span class="btn-text">EASY</span>
+                            </button>
+                            <button class="arcade-diff-btn" data-diff="medium">
+                                <span class="btn-text">MEDIUM</span>
+                            </button>
+                            <button class="arcade-diff-btn" data-diff="hard">
+                                <span class="btn-text">HARD</span>
+                            </button>
+                        </div>
+                    </div>   
+
+                    <div id="arcade-canvas-viewport-container" class="glass-panel canvas-viewport-wrapper">
+                        <canvas id="arcade-render-canvas"></canvas>
+                        <input type="text" id="arcade-hidden-keystroke-proxy" autocomplete="off" autocapitalize="off">
+                        
+                        <div id="arcade-splash-overlay" class="viewport-canvas-overlay">
+                            <h2 class="overlay-glow-heading text-cyan">GRID SYSTEM PERIMETER COMPROMISED</h2>
+                            <p class="overlay-subtext">Incoming structural data packet spikes detected. Verify data parameters dynamically to blast vector sequences before network bounds buffer crash occurs.</p>
+                            <button id="arcade-start-trigger-btn" class="glass-btn variant-accent shadow-glow-magenta">Engage Processing Matrix</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-panel visual-keyboard-container">
+                    <div class="keyboard-board-grid" id="virtual-keyboard-dom-node">
+                        </div>
+                </div>
+
+            </main>
+
+            <aside class="telemetry-sidebar-pane">
+                <div class="glass-panel ranking-leaderboard-card">
+                    <h3 class="sidebar-panel-heading">🏆 Platform Telemetry Log Archives</h3>
+                    <div class="telemetry-list-stack" id="leaderboard-rendering-root">
+                        </div>
+                </div>
+            </aside>
+
+        </div>
+
+        <footer class="global-platform-footer font-mono">
+
+            <p>🪐 TypeNova v1.0 // Hybrid Typing Platform</p>
+
+            <p>Designed & Developed by Kumar</p>
+
+        </footer>
+    </div>
+
+    <div class="modal-system-overlay hidden-asset" id="global-summary-results-modal">
+        <div class="glass-panel summary-modal-card animate-scale-up">
+            <h2 id="modal-title-injection-node" class="modal-card-heading">🏁 Telemetry Analysis Generated</h2>
+            <p id="modal-subtitle-injection-node" class="modal-card-subtext">Hardware metrics evaluation sequences completed successfully.</p>
+            
+            <div class="modal-metrics-summary-grid">
+                <div class="summary-metric-box">
+                    <span id="modal-metric-1-label" class="box-metric-label">INDEX GAIN</span>
+                    <span id="modal-metric-1-value" class="box-metric-value text-magenta">0 WPM</span>
+                </div>
+                <div class="summary-metric-box">
+                    <span id="modal-metric-2-label" class="box-metric-label">PRECISION MARGIN</span>
+                    <span id="modal-metric-2-value" class="box-metric-value text-emerald">100%</span>
+                </div>
+            </div>
+
+            <button id="modal-dismiss-trigger-btn" class="glass-btn variant-accent w-full-btn">Re-engage Simulation Subroutine</button>
+        </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>

@@ -39,16 +39,16 @@ typenova/
 │
 └── README.md
 
-## 💻 Run Locally
+# 🌐 Live Demo
 
-```bash
-python -m http.server 8000
-```
+https://typenova.vercel.app/
 
-## 🌐 Live Demo
 
-(Add Vercel link here)
+## 💻 GitHub Repository
+
+https://github.com/Sharonkumar28/typenova
 
 ## 👨‍💻 Author
+
 
 Kumar
